@@ -9,6 +9,16 @@ This repository documents my 90-day journey to becomee a DevOps engineer.
 - Understand containerization with Docker
 - Build CI/CD pipelines
 - Deploy applications on cloud platforms
+- Master Git and version control
+- Master Linux fundamentals and scripting
+- Learn Python automation
+- Understand containerization with Docker
+- Learn Kubernetes for container orchestration and application scaling
+- Build CI/CD pipelines with automated testing
+- Understand networking, firewalls, and SSH
+- Deploy applications on cloud platforms (e.g., AWS)
+- Learn Infrastructure as Code (IaC) with tools like Terraform
+- Implement monitoring and logging (e.g., Prometheus, Grafana)
 
 ## Progress
 - [x] Day 1: Git setup and first repository
