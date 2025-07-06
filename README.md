@@ -13,7 +13,8 @@ This repository documents my 90-day journey to becomee a DevOps engineer.
 ## Progress
 - x Day 1: Git setup and first repository
 - x Day 2: First commits and bash scripting
--   Day 3: Git branching
+- x Day 3: Git branching: Learned to create branch, checkout to branch, merge branch, push to branch, cherry-pick push to branch.
+-   Day 4: 
 -   More to come...
 
 ## Current Focus
