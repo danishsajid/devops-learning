@@ -1,12 +1,15 @@
 #!/bin/bash
 echo "Network Information:"
 echo "===================="
-echo "IP Addresses:"
-ip addr show | grep "inet" | awk '{print $2}' | head -5
+echo "IPv4 Addresses (excluding loopback):"
+ip -4 addr show | grep -v '127.0.0.1' | grep "inet" | awk '{print $2}'
 echo ""
-echo "Active Network Connection:"
-ss -tuln | head -10
+echo "IPv6 Addresses (excluding loopback):"
+ip -6 addr show | grep -v '::1' | grep 'inet6' | awk '{print $2}'
+echo ""
+echo "Active Listening Ports (TCP/UDP):"
+ss -tulnH | head -10
 echo ""
 echo "Network Interface Status:"
-ip link show | grep -E "^[0-9]+" | head -5
-
+ip -br link show
+echo ""
