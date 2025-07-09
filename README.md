@@ -55,8 +55,21 @@ This repository documents my 90-day journey to become a DevOps engineer, focusin
 
 ---
 
+### ✅ Day 5: Git History & Troubleshooting
+- Viewed commit history using `git log --oneline --graph --decorate --all`
+- Practiced comparing code changes using `git diff`, `--cached`, and `HEAD`
+- Undid commits with `git reset` (soft/hard) and `git revert`
+- Created and committed `.gitignore`
+- Organized scripts into a proper folder structure:
+```
+scripts/
+├── info/
+├── monitor/
+└── checks/ 
+```
+---
+
 ###  Coming Soon
-- [ ] Day 5 – Git History, Revert, Reset, and .gitignore
 - [ ] Day 6 – Git diff, selective staging, and master script
 - [ ] Day 7 – Automating scripts with cron and setting up log rotation
 
