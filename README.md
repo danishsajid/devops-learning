@@ -55,7 +55,7 @@ This repository documents my 90-day journey to become a DevOps engineer, focusin
 
 ---
 
-### ✅ Day 5: Git History & Troubleshooting
+### [x] Day 5: Git History & Troubleshooting
 - Viewed commit history using `git log --oneline --graph --decorate --all`
 - Practiced comparing code changes using `git diff`, `--cached`, and `HEAD`
 - Undid commits with `git reset` (soft/hard) and `git revert`
@@ -67,11 +67,25 @@ scripts/
 ├── monitor/
 └── checks/ 
 ```
+
 ---
 
-###  Coming Soon
-- [ ] Day 6 – Git diff, selective staging, and master script
-- [ ] Day 7 – Automating scripts with cron and setting up log rotation
+### [x] Day 6 – EC2 Instance Setup & System Health Check
+
+- Launched an Ubuntu 24.04 EC2 instance (t2.micro, 8GB EBS) in Stockholm region
+- Configured:
+  - SSH key pair & security group (allowed port 22 from My IP)
+  - Installed updates with `sudo apt update && sudo apt upgrade`
+  - Tweaked SSH timeout settings
+- Installed Git and cloned existing repo via SSH
+- Created a new branch `day6-ec2-setup` for today's work
+- Collected and documented system health metrics in `docs/ec2_setup.md`:
+  - OS info (`cat /etc/os-release`)
+  - Disk usage (`df -h`)
+  - Memory stats (`free -m`)
+  - Uptime (`uptime`)
+  - Top processes (`ps aux --sort=-%cpu | head`)
+- Learned basic use of system health commands: `ps`, `top`, `df`, `free`, `uptime`
 
 ---
 
