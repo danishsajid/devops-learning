@@ -105,6 +105,25 @@ scripts/
 - Created feature branches for both code and documentation, pushed, and merged via pull requests
 
 ---
+
+### [x] Day 8 – System Monitoring Script with Cron Automation
+
+- Created `scripts/monitor/system-monitor.sh`:
+  - Logs CPU (`top`), memory (`free -h`), and disk usage (`df -h`)
+  - Appends output to `/var/log/system-monitor/system-monitor.log`
+  - Includes timestamp headers for each log entry
+- Made the script executable with `chmod +x`
+- Manually tested and verified correct log output
+- Configured a cron job to run the script every 5 minutes:
+  - Used `crontab -e` to add:  
+    `*/5 * * * * /absolute/path/to/system-monitor.sh`
+- Verified cron automation by inspecting log file growth over time
+- Documented the entire process in `docs/system-monitoring.md`
+  - Includes script purpose, cron job setup, sample output, and notes
+- Used Git to manage everything in `day8` branch and merged via pull request
+
+---
+
 ##  Current Focus
 **Week 1: Git mastery and system monitoring scripts**
 
