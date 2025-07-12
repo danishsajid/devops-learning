@@ -1,4 +1,4 @@
-# 🛠️ Day 7 – Flask Web App Setup on EC2
+# Day 7 – Flask Web App Setup on EC2
 
 **Date:** 2025-07-10  
 **Goal:** Deploy a minimal Flask app on an EC2 instance and access it via curl and browser.
@@ -69,7 +69,7 @@ Output:
 
 ---
 
-## 🧪 Testing the App
+## Testing the App
 
 ### Local Test on EC2
 ```bash
