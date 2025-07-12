@@ -96,16 +96,15 @@ scripts/
   - `sudo apt install -y python3-venv`
   - `python3 -m venv venv && source venv/bin/activate`
 - Installed Flask inside the virtual environment
-- Wrote a minimal Flask app in `app/app.py`:
+- Wrote and committed a minimal Flask app in `app/app.py`:
   - Route `/` returns: `"Hello from Flask on EC2!"`
 - Ran the app with: `python app.py`
   - Verified output via `curl` and browser (after opening port 5000 in security group)
 - Documented the full setup process in `docs/app_setup.md`
   - Included troubleshooting for PEP 668 and use of virtualenv
-- Created a new branch `day7-app-setup`, pushed changes, and merged via pull request
+- Created feature branches for both code and documentation, pushed, and merged via pull requests
 
 ---
-
 ##  Current Focus
 **Week 1: Git mastery and system monitoring scripts**
 
