@@ -34,7 +34,8 @@ devops-learning/
   - Memory usage using `free -h`
   - Disk usage using `df -h`
 - Adds a timestamp header
-- Appends output to: `/var/log/system-monitor/system-monitor.log`
+- Appends output to: `~/system-monitor-logs/system-monitor.log`
+- Uses absolute paths and avoids `sudo` so it works reliably with cron
 
 ---
 
@@ -52,7 +53,7 @@ devops-learning/
 
 3. Check the output:
    ```bash
-   sudo tail -n 30 /var/log/system-monitor/system-monitor.log
+   tail -n 30 ~/system-monitor-logs/system-monitor.log
    ```
 
 ---
@@ -81,7 +82,7 @@ Mem: 7.6Gi used, 625Mi free
 
 To automate the script, a cron job was added to run it every 5 minutes.
 
-1. Find the full path to the script:
+1. Find the full absolute path to the script:
    ```bash
    realpath scripts/monitor/system-monitor.sh
    ```
@@ -93,7 +94,7 @@ To automate the script, a cron job was added to run it every 5 minutes.
 
 3. Add this line to run it every 5 minutes:
    ```cron
-   */5 * * * * /home/ubuntu/devops-learning/scripts/monitor/system-monitor.sh
+   */5 * * * * <absolute-path-to>/scripts/monitor/system-monitor.sh
    ```
 
 4. Confirm it's saved:
@@ -103,25 +104,27 @@ To automate the script, a cron job was added to run it every 5 minutes.
 
 5. After 5–10 minutes, verify logs are updating:
    ```bash
-   sudo tail -n 30 /var/log/system-monitor/system-monitor.log
+   tail -n 30 ~/system-monitor-logs/system-monitor.log
    ```
 
 ---
 
 ## Notes
 
-- Cron uses a minimal environment, so always use absolute paths.
-- The script writes logs to `/var/log/system-monitor/` and may require `sudo` to create or write to that directory.
-- Log entries are timestamped, which helps with tracking system performance over time.
-- This is a basic form of monitoring. In a real production environment, centralized logging tools would be used instead.
+- The script avoids using `sudo` to ensure it runs smoothly under a normal user via cron.
+- It writes logs to `~/system-monitor-logs/`, a directory the user owns.
+- Always use absolute paths in cron since it runs in a minimal environment.
+- Each log entry is timestamped, making it easier to track system performance trends over time.
+- This is a basic form of logging. In production, centralized monitoring (e.g., Prometheus + Grafana) would be preferred.
 
 ---
 
 ## Outcome
 
-- The system-monitoring script works as expected.
-- A cron job ensures logs are written automatically every 5 minutes.
-- Documentation and scripts committed to the DevOps learning repository.
+- The system-monitoring script runs correctly, both manually and automatically.
+- A cron job ensures logs are appended every 5 minutes.
+- Script was polished for readability and cron compatibility.
+- Documentation and script committed to the DevOps learning repository.
 
 ---
 

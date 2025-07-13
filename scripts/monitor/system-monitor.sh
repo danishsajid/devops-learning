@@ -1,16 +1,16 @@
 #!/bin/bash
 
 #System Monitoring Script
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin/bin
 
-
-LOG_DIR="/var/log/system-monitor"
+LOG_DIR="/home/zoya/system-monitor-logs"
 LOG_FILE="$LOG_DIR/system-monitor.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 #Ensure log directory exists
 
-sudo mkdir -p "$LOG_DIR"
-sudo touch "$LOG_FILE"
+mkdir -p "$LOG_DIR"
+touch "$LOG_FILE"
 
 {
 	echo "----- System Monitor Log: $TIMESTAMP -----"
@@ -26,4 +26,4 @@ sudo touch "$LOG_FILE"
 	echo ""
 	echo "-----------------------------------------"
 	echo ""
-} | sudo tee -a "$LOG_FILE" > /dev/null
+} >> "$LOG_FILE"
