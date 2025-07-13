@@ -150,6 +150,24 @@ scripts/
 
 ---
 
+### [x] Maintenance – Branch Cleanup & Renaming
+
+- Renamed earlier feature branches (`feature/*`) to consistent `day*-description` format
+- Deleted old branches locally and remotely:
+  - Used `git branch -m` to rename
+  - Used `git push origin --delete old-branch` and pushed new ones
+- Retrieved missing remote branches using:
+  - `git fetch origin`
+  - `git checkout -b local-name origin/remote-name`
+- Cleaned up stale remote refs with:  
+  ```bash
+  git fetch -p
+```
+
+- Verified branch list with `git branch -a` and `git branch -r`
+- Documented the entire process in `docs/git-maintenance.md`
+
+
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
