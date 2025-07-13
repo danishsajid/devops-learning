@@ -124,6 +124,32 @@ scripts/
 
 ---
 
+### [x] Day 9 – Log Rotation and Script Improvements
+
+- Improved `system-monitor.sh` for cron compatibility:
+  - Removed all `sudo` commands
+  - Used `$HOME` for user-specific paths
+  - Ensured log directory exists without root privileges
+- Confirmed cron job works and logs are updating every 5 minutes
+- Documented updated behavior in `docs/system-monitoring.md`
+
+- Created `scripts/rotate/system-logrotate.sh`:
+  - Manually triggers log rotation using `logrotate`
+  - Prints success or failure with proper exit code check
+
+- Added `scripts/rotate/system-monitor.conf`:
+  - Template config for logrotate with user-based ownership
+  - Daily rotation, compression, 7 backups, `olddir` structure
+
+- Verified rotation works with:
+  - `sudo ./scripts/rotate/system-logrotate.sh`
+  - Log files move to `~/system-monitor-logs/old/` and compress
+
+- Documented the entire log rotation process in `docs/log-rotation.md`
+- Committed and pushed everything to `day9logrotation` branch via pull request
+
+---
+
 ##  Current Focus
-**Week 1: Git mastery and system monitoring scripts**
+**Git mastery and system monitoring scripts**
 
