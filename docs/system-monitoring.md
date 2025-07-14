@@ -51,7 +51,7 @@ devops-learning/
 1. Make the script executable:
    ```bash
    chmod +x scripts/monitor/system-monitor.sh
-````
+   ```
 
 2. Run it manually:
 
@@ -96,8 +96,7 @@ System monitoring complete at 2025-07-14 12:44:32
 - Script uses `$(logname)` to determine the real user, ensuring logs go to the correct home directory even if run via `sudo`.
 - Indented output improves readability.
 - Timestamped section headers make it easy to track resource usage over time.
-- Designed to be cron-compatible:
-
+- Designed to be cron-compatible:   
   - Uses absolute paths
   - No reliance on `sudo`
 - Logs are appended, not overwritten.
