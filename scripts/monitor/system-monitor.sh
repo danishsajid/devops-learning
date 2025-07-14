@@ -3,7 +3,7 @@
 #System Monitoring Script
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin/bin
 
-LOG_DIR="/home/zoya/system-monitor-logs"
+LOG_DIR="/home/$(logname)/system-monitor-logs"
 LOG_FILE="$LOG_DIR/system-monitor.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
