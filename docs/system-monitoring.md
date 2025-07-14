@@ -1,30 +1,32 @@
-# Day 8 – System Monitoring Script with Cron Automation
+# Day 10 – Polished System Monitoring Script
 
-**Date:** 2025-07-12  
-**Goal:** Create a Bash script to monitor system resources (CPU, memory, disk) and automate it using cron.
+**Date:** 2025-07-14  
+**Goal:** Refactor and polish the system-monitoring script with better logging, error handling, and portability.
 
 ---
 
 ## Overview
 
-This task involved writing a Bash script to collect and log system resource usage, and automating it to run every 5 minutes using a cron job. The script appends output to a log file with timestamps, helping monitor CPU load, memory usage, and disk space over time.
+This task improves the previously written system-monitoring script to be more readable, robust, and user-agnostic. Enhancements include structured output, timestamped sections, colored terminal messages, error handling, and user detection for portability across systems.
 
 ---
 
 ## File Structure
 
 ```
+
 devops-learning/
 ├── scripts/
 │   └── monitor/
 │       └── system-monitor.sh
 └── docs/
-    └── system-monitoring.md
+└── system-monitoring.md
+
 ```
 
 ---
 
-## Script Details
+## Script Features
 
 **Path:** `scripts/monitor/system-monitor.sh`
 
@@ -33,9 +35,14 @@ devops-learning/
   - CPU load using `top`
   - Memory usage using `free -h`
   - Disk usage using `df -h`
-- Adds a timestamp header
-- Appends output to: `~/system-monitor-logs/system-monitor.log`
-- Uses absolute paths and avoids `sudo` so it works reliably with cron
+- Each section is:
+  - Timestamped
+  - Clearly separated
+  - Indented for easier reading
+- Adds color-coded terminal messages (cyan for info, red for errors)
+- Includes error handling for each command
+- Uses `$(logname)` to dynamically detect the current user's home directory
+- Appends output to: `/home/<username>/system-monitor-logs/system-monitor.log`
 
 ---
 
@@ -44,16 +51,18 @@ devops-learning/
 1. Make the script executable:
    ```bash
    chmod +x scripts/monitor/system-monitor.sh
-   ```
+````
 
 2. Run it manually:
+
    ```bash
    ./scripts/monitor/system-monitor.sh
    ```
 
-3. Check the output:
+3. Check the log:
+
    ```bash
-   tail -n 30 ~/system-monitor-logs/system-monitor.log
+   tail -n 30 /home/$(logname)/system-monitor-logs/system-monitor.log
    ```
 
 ---
@@ -61,73 +70,50 @@ devops-learning/
 ## Sample Output
 
 ```
------ System Monitor Log: 2025-07-12 10:56:56 -----
+----- System Monitor Log: 2025-07-14 12:44:32 -----
 
->> CPU Load (top -bn1 | head -n 5):
-top - 10:56:59 up 4 days, 1 user,  load average: 0.49, 0.39, 0.51
-...
+>> CPU Load (top -bn1 | head -n 5) [2025-07-14 12:44:32]
+   top - 12:44:32 up 1 day,  5:12,  1 user,  load average: 0.03, 0.05, 0.00
+   Tasks:  95 total,   1 running, 94 sleeping,   0 stopped,   0 zombie
+   %Cpu(s):  2.0 us,  1.0 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 
->> Memory Usage (free -h):
-Mem: 7.6Gi used, 625Mi free
-...
+>> Memory Usage (free -h) [2025-07-14 12:44:32]
+   Mem:           7.7G        2.9G        2.1G         50M        2.7G        4.0G
+   Swap:          2.0G          0B        2.0G
 
->> Disk Usage (df -h):
-/dev/sda2   46G   21G   24G  47% /
-...
+>> Disk Usage (df -h) [2025-07-14 12:44:32]
+   Filesystem      Size  Used Avail Use% Mounted on
+   /dev/sda1        40G   11G   27G  30% /
+
+--------------------------------------------
+System monitoring complete at 2025-07-14 12:44:32
 ```
-
----
-
-## Cron Automation
-
-To automate the script, a cron job was added to run it every 5 minutes.
-
-1. Find the full absolute path to the script:
-   ```bash
-   realpath scripts/monitor/system-monitor.sh
-   ```
-
-2. Edit your crontab:
-   ```bash
-   crontab -e
-   ```
-
-3. Add this line to run it every 5 minutes:
-   ```cron
-   */5 * * * * <absolute-path-to>/scripts/monitor/system-monitor.sh
-   ```
-
-4. Confirm it's saved:
-   ```bash
-   crontab -l
-   ```
-
-5. After 5–10 minutes, verify logs are updating:
-   ```bash
-   tail -n 30 ~/system-monitor-logs/system-monitor.log
-   ```
 
 ---
 
 ## Notes
 
-- The script avoids using `sudo` to ensure it runs smoothly under a normal user via cron.
-- It writes logs to `~/system-monitor-logs/`, a directory the user owns.
-- Always use absolute paths in cron since it runs in a minimal environment.
-- Each log entry is timestamped, making it easier to track system performance trends over time.
-- This is a basic form of logging. In production, centralized monitoring (e.g., Prometheus + Grafana) would be preferred.
+- Script uses `$(logname)` to determine the real user, ensuring logs go to the correct home directory even if run via `sudo`.
+- Indented output improves readability.
+- Timestamped section headers make it easy to track resource usage over time.
+- Designed to be cron-compatible:
+
+  - Uses absolute paths
+  - No reliance on `sudo`
+- Logs are appended, not overwritten.
 
 ---
 
 ## Outcome
 
-- The system-monitoring script runs correctly, both manually and automatically.
-- A cron job ensures logs are appended every 5 minutes.
-- Script was polished for readability and cron compatibility.
-- Documentation and script committed to the DevOps learning repository.
+- Script is now more portable, readable, and production-ready.
+- Colored terminal output makes manual runs user-friendly.
+- Improved logging format is easier to parse or tail in real-time.
+- Ready for automation via cron or systemd (if needed in future).
 
 ---
 
-**Author:** Danish Sajid  
-**DevOps Learning Plan – Day 8**
+**Author:** Danish Sajid
+**DevOps Learning Plan – Day 10**
 
+---

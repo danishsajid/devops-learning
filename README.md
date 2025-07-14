@@ -165,7 +165,22 @@ scripts/
 - Verified branch list with `git branch -a` and `git branch -r`
 - Documented the entire process in `docs/git-maintenance.md`
 
+---
 
+### [x] Day 10 – Script Polish
+
+- Refactored `system-monitor.sh` to improve structure and portability:
+  - Replaced hardcoded username with `$(logname)` for dynamic user paths
+  - Added colored terminal output for section headers and errors
+  - Timestamped each section (`CPU`, `Memory`, `Disk`) using `date`
+  - Indented log output using `sed 's/^/   /'` for readability
+  - Added error handling with success/failure messages for each section
+- Ensured logs go to `/home/<user>/system-monitor-logs/system-monitor.log` even when run with `sudo`
+- Verified all output is clean and easy to read
+- Updated `docs/system-monitoring.md` to reflect all changes
+- Committed and pushed to `day10-script-polish` branch via pull request
+
+---
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
