@@ -160,8 +160,7 @@ scripts/
   - `git fetch origin`
   - `git checkout -b local-name origin/remote-name`
 - Cleaned up stale remote refs with:  
-  ```bash
-  git fetch -p```
+ 'git fetch -p'
 
 - Verified branch list with `git branch -a` and `git branch -r`
 - Documented the entire process in `docs/git-maintenance.md`
