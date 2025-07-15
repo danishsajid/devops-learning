@@ -1,4 +1,16 @@
 #!/bin/bash
+set -e
+
+#=====================================================
+#Script Name: network-info.sh
+#Description: Outputs Network Information excluding
+#             loopback.
+#Author: Danish Sajid
+#Date: July 9th, 2025
+#Usage: ./network-info.sh
+#=====================================================
+
+
 echo "Network Information:"
 echo "===================="
 echo "IPv4 Addresses (excluding loopback):"

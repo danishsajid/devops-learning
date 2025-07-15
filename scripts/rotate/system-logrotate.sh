@@ -1,4 +1,17 @@
 #!/bin/bash
+set -e
+
+#=====================================================
+#Script Name: system-logrotate.sh
+#Description: This is an Triggers log rotation manually using a
+#             custom config from scripts/rotate/.
+#             Designed to work with system-monitor.sh
+#             for managing logs created by that script.
+#Author: Danish Sajid
+#Date: July 13th, 2025
+#Usage: ./system-logrotate.sh
+#=====================================================
+
 
 # Logrotate Trigger Script for system-monitor logs
 

@@ -1,4 +1,15 @@
 #!/bin/bash
+set -e
+
+#=====================================================
+#Script Name: system-monitor.sh
+#Description: Logs CPU load, Memory Usage and Disk Usage
+#             to "/home/$(logname)/system-monitor-logs".
+#Author: Danish Sajid
+#Date: July 14th, 2025
+#Usage: ./system-monitor
+#=====================================================
+
 
 #System Monitoring Script
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin/bin

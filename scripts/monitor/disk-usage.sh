@@ -1,4 +1,16 @@
 #!/bin/bash
+set -e
+
+#=====================================================
+#Script Name: disk-usage.sh
+#Description: Outputs Disk Usage, Top 10 largest directories
+#             in / and Home directory usage.
+#Author: Danish Sajid
+#Date: July 5th, 2025
+#Usage: ./Disk-Usage.sh
+#=====================================================
+
+
 echo "Disk Usage Information:"
 echo "======================="
 df -h
