@@ -66,9 +66,8 @@ devops-learning/
 ## Flask App Persistence on EC2
 
 - Used `nohup` to keep Flask app running after SSH disconnect:
-  ```bash
-  nohup venv/bin/python app.py > flask.log 2>&1 &
-```
+
+  `nohup venv/bin/python app.py > flask.log 2>&1 &`
 
 - Confirmed app is accessible via public IP and mobile browser.
 - Output is logged in `flask.log`.
@@ -81,7 +80,7 @@ devops-learning/
 
 - Scheduled to run every 5 minutes using the user crontab:
 
-  ```cron
+  ```
   */5 * * * * /home/zoya/devops-learning/scripts/monitor/system-monitor.sh
   ```
 
@@ -89,7 +88,7 @@ devops-learning/
 
 - Moved to root's crontab for proper access to `sudo`:
 
-  ```cron
+  ```
   0 */12 * * * /home/zoya/devops-learning/scripts/rotate/system-logrotate.sh
   ```
 
@@ -104,7 +103,7 @@ devops-learning/
 - Moving to root crontab avoids password prompt issues from `sudo`.
 - Verified cron jobs are triggering by checking:
 
-  ```bash
+  ```
   grep CRON /var/log/syslog
   ```
 - Logs remain clean and organized in `/home/zoya/system-monitor-logs/`.
