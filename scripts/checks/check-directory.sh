@@ -1,9 +1,5 @@
 #!/bin/bash
-
-
-#This is a test comment for git diff
-
-#This is also a test comment for git diff but now its diff --cached
+set -e
 
 #=====================================================
 #Script Name: check-directory.sh

@@ -1,4 +1,15 @@
 #!/bin/bash
+set -e
+
+#=====================================================
+#Script Name: system-info.sh
+#Description: Outputs System information, Memory Usage 
+#             and Disk Usage.
+#Author: Danish Sajid
+#Date: July 5th, 2025
+#Usage: ./system-info.sh
+#=====================================================
+
 echo "System Information:"
 echo "===================="
 echo "Hostname: $(hostname)"

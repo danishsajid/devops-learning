@@ -181,6 +181,23 @@ scripts/
 - Committed and pushed to `day10-script-polish` branch via pull request
 
 ---
+
+### [x] Day 11 – Weekend Review and Polish
+
+- Reviewed and cleaned all previously written Bash scripts:
+  - Added consistent headers with script name, description, author, date, and usage
+  - Ensured all scripts include `set -e` for safe execution and error handling
+  - Verified that all scripts run correctly and produce clean output
+- Confirmed Flask app runs persistently on EC2 using:
+  - `nohup venv/bin/python app.py > flask.log 2>&1 &`
+  - Verified externally via phone browser
+- Moved logrotate cron job to root’s crontab for proper `sudo` access:
+  - Scheduled via `0 */12 * * *` to run every 12 hours
+- Cleaned up user crontab to remove duplicate logrotate entries
+- Verified cron and log rotation pipeline works end-to-end
+- Committed and pushed to `day11-weekend-polish` branch via pull request
+
+---
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
