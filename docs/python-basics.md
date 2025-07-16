@@ -20,7 +20,7 @@ devops-learning/
 │   └── monitor/
 │       └── monitor.py
 └── docs/
-    └── day12-python-basics.md
+    └── python-basics.md
 ```
 
 ---
