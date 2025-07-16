@@ -198,6 +198,22 @@ scripts/
 - Committed and pushed to `day11-weekend-polish` branch via pull request
 
 ---
+
+### [x] Day 12 – Python Basics and System Monitor Script
+
+- Set up Python 3 and created a virtual environment (`pyenv`) on EC2
+- Installed the `psutil` library inside the venv to collect system stats
+- Practiced Python fundamentals using `basics.py`:
+  - Variables, strings, `for` and `while` loops
+- Wrote `monitor.py` to print:
+  - CPU usage (`psutil.cpu_percent(interval=1)`)
+  - Memory usage in percent and MB
+- Added script metadata headers with:
+  - Script name, description, author, date, usage
+- Made script executable and confirmed clean terminal output
+- Committed and pushed both scripts to `day12-python-basics` branch via pull request
+
+---
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
