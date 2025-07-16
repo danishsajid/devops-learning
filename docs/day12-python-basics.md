@@ -1,7 +1,3 @@
-Absolutely! Here's your Day 12 doc in that same structured format:
-
----
-
 # Day 12 – Python Basics and System Monitor Script
 
 **Date:** 2025-07-16
