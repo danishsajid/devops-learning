@@ -214,6 +214,17 @@ scripts/
 - Committed and pushed both scripts to `day12-python-basics` branch via pull request
 
 ---
+
+### Day 13: Python Functions and Files
+
+- [x] Created `monitor.py` with proper shebang and header
+- [x] Wrote modular functions for CPU, RAM, and Disk stats
+- [x] Used `psutil`, `time`, and `os` modules for system monitoring
+- [x] Logged output to `~/Downloads/devops_learning/system_stats.log`
+- [x] Saved script in `/scripts/monitor/`
+- [x] Documented the day in `/docs/dayxx-monitor-script.md`
+
+---
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
