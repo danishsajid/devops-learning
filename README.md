@@ -225,6 +225,18 @@ scripts/
 - Documented the day in `/docs/dayxx-monitor-script.md`
 
 ---
+
+### Day 16: Rewrite Monitoring Script
+
+- Rewrote `system-monitor.sh` in Python as `system-monitor.py`
+- Used `psutil`, `platform`, `socket`, and `datetime` modules for system metrics
+- Added error handling using `try/except` blocks for each section
+- Matched output structure and content with original Bash version
+- Made script executable with proper shebang
+- Saved script in project root as `system-monitor.py`
+- Documented Bash vs Python comparison in `/docs/python-sysmonitor.md`
+
+---
 ##  Current Focus
 **Git mastery and system monitoring scripts**
 
