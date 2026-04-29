@@ -15,14 +15,14 @@ This repository documents my journey to become a DevOps engineer, focusing on au
 
 | Phase | Topic | Status |
 |-------|-------|--------|
-| 01 | Linux CLI — go deeper | In progress |
-| 02 | Bash scripting — properly | Not started |
-| 03 | Git workflows — beyond basics | Not started |
+| 01 | Linux CLI - go deeper | In progress |
+| 02 | Bash scripting - properly | Not started |
+| 03 | Git workflows - beyond basics | Not started |
 | 04 | Networking fundamentals | Not started |
 | 05 | Docker and containers | Not started |
-| 06 | Python — just enough for DevOps | Not started |
+| 06 | Python - just enough for DevOps | Not started |
 | 07 | Cloud fundamentals with GCP | Not started |
-| 08 | Terraform — infrastructure as code | Not started |
+| 08 | Terraform - infrastructure as code | Not started |
 | 09 | Kubernetes | Not started |
 | 10 | CI/CD pipelines with GitHub Actions | Not started |
 | 11 | Monitoring, security, portfolio, jobs | Not started |
@@ -45,16 +45,16 @@ docs/             # Documentation and notes per phase
 
 ## Current Phase
 
-**Phase 01 — Linux CLI: go deeper**
+**Phase 01 - Linux CLI: go deeper**
 
-Deepening Linux fundamentals — permissions, process management, disk, logs, networking commands, and system monitoring. Building the foundation everything else sits on.
+Deepening Linux fundamentals - permissions, process management, disk, logs, networking commands, and system monitoring. Building the foundation everything else sits on.
 
 ---
 
 <details>
 <summary>Previous attempt (2025) - Click to Expand</summary>
 
-> Work done in 2025 following a day-based plan. Included here for continuity.
+> This work was done in 2025 following a 90 day plan. Included here for continuity.
 > The new phase-based work starts from Phase 01 above.
 
 ### Day 1 – Git Setup & First Repository
