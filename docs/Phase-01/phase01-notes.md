@@ -36,3 +36,16 @@ Learning about permissions from [wooledge - Permissions](https://mywiki.wooledge
 - `rm` (delete) permission exists on the directory, not the file. so you can delete anything inside a directory that you own regardless of who owns the file or what the file's permissions are. 
 - File's permissions protect reading and writing its contents. The parent-directory's write permissions controls whether you can remove the file entirely.
 - This is also why chmod 1777 (the sticky bit) exists on directories like /tmp. Without it, anyone could delete anyone else's files in a shared directory since everyone has write access. The sticky bit restricts deletion so only the file's owner can delete it even if the directory is world-writable.
+
+**13th May 2026**
+
+- `chown` is used to change ownership of a file. You will need superuser `sudo` permissions to change it.
+- `umask` works as intended. it is essentially a filter of permissions you use at the time of creating files. such as `umask` of 022 removes write permissions from `group` and `others`.
+- `setuid` is a special permission bit that allows you to run a command with file owner's permissions
+- `setuid` bit `s` represents it. in case of capital `S` it still does the same thing but it won't have execute permission so it is essentially useless and most probably a mistake
+- `setuid (4)` - file runs as owner, not the user executing it. shown as `s` in owner execute.
+- `setgid (2)` - file runs as group, not the user's group. shown as `s` in group execute.
+- `sticky (1)` - on directories, only owner can delete their own files. shown as `t` in other execute.
+- That's `chmod 4755`, `chmod 2755`, `chmod 1777` respectively.
+- Basically bit `4` is for running as the owner, `2` is for running as group that that file access is cleared for and the sticky bit `1` that only lets the owner of the file delete it.
+- `setgid` or `4` on a directory behaves differently than on a file. On a file it means run as the group. On a directory it means any new files created inside inherit the directory's group instead of the creator's default group. Useful for shared team directories.
