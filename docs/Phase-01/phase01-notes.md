@@ -49,3 +49,24 @@ Learning about permissions from [wooledge - Permissions](https://mywiki.wooledge
 - That's `chmod 4755`, `chmod 2755`, `chmod 1777` respectively.
 - Basically bit `4` is for running as the owner, `2` is for running as group that that file access is cleared for and the sticky bit `1` that only lets the owner of the file delete it.
 - `setgid` or `4` on a directory behaves differently than on a file. On a file it means run as the group. On a directory it means any new files created inside inherit the directory's group instead of the creator's default group. Useful for shared team directories.
+
+**14th May 2026**
+
+- **Process Management**
+- Every process is identified by a number, called the **PID**, or **Process IDentifier**.
+- When working with a process, you must know its PID in order to be able to do anything with it because Looking for processes by name is extremely error prone.
+- the reason looking for processes by name is error prone is because multiple processes can have the same name, and process names can be spoofed. PID is the only guaranteed unique identifier. That's why scripts that rely on `ps | grep processname` are fragile because you might kill the wrong thing.
+- You can use `command &` to run a process in the background. For multiple commands you can use `command & command & command &` and they will run in the background simultaneously 
+- `;` can also be used to separate commands but `&` runs them in the background and `;` runs them in sequence
+- The `$!` special parameter holds the PID of the most recently executed background job
+- simply run the `ps` command to get a snapshot of the active processes in the current terminal session
+- `ps aux` is used to display:
+	- `a` - displays all processes for all users
+	- `u` - provides a detailed user oriented format
+	- `x` - includes processes that are not attached to any terminal, like daemons that start at boot and show `?` at the TTY column
+- `ps aux` is a BSD Style without dash before options
+- `ps -ef` is used to display:
+	- `-e` - selects every process on the system
+	- `-f` - displays full format which includes details like UID, PPID (Parent Process ID), C (CPU utilization), and STIME (start time).
+- `ps -ef` is a System V style with dash before options
+- `top` is the real-time monitoring command that displays all the processes that are currently running and displays things like CPU and RAM Usage among many other things
