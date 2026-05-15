@@ -70,3 +70,23 @@ Learning about permissions from [wooledge - Permissions](https://mywiki.wooledge
 	- `-f` - displays full format which includes details like UID, PPID (Parent Process ID), C (CPU utilization), and STIME (start time).
 - `ps -ef` is a System V style with dash before options
 - `top` is the real-time monitoring command that displays all the processes that are currently running and displays things like CPU and RAM Usage among many other things
+
+**15th May 2026**
+
+- TTY = Teletype
+- Terminal and Pseudo Terminals
+- Kernel allocates resources to processes
+- Kernel also acts as a scheduler allocates resources by need and priority if there are competing processes. This way they all get fair share of resources.
+- The `fork` call creates a nearly identical child process. 
+- After forking, the child process can either continue running the same program as its parent or, more commonly, use the `execve` system call to load and run a new program.
+- `fork-exec` two step is how you create a process in linux. 
+- Every single time you run any command in your terminal like `ls`, `chmod`, `git`, `vim` that fork-exec sequence happens. Every time. Only Exceptions are builtins like `cd`, `echo`, `pwd` that are handled by shell itself.
+- `init` process is the ancestor process with PID 1. It starts when the system boots and is basically the parent of all other processes that will run.
+- `_exit` tells the kernel process is finished and its resources are ready to be reclaimed.
+- Kernel stores the `PID` and exit status as a `0` if the exit was successful or `non-zero` if it had complications. This inbetween time is called the `zombie process` like its dead but not yet buried
+- Then the parent calls `wait` and kernel gives the exit status to the parent and cleans the process from table
+- The process of a parent calling `wait` is called "reaping"
+- If a parent process never calls `wait`, zombies will keep increasing. A few zombies are not a big deal but a lot of them can fill the process table to keep new processes from being created. If a parent process dies before the child process is finished then `init` adopts it and will call `wait` to reap it
+- You will also see `zombie` processes when you run `ps aux` as `Z` in the status column
+- Orphan process is active whose parent is dead, `init` adopts it and it continues to execute until it is done
+- Zombie process is dead itself after completing its execution but still is present in process table. It is waiting for parent process to read its exit status
