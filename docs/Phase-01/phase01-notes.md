@@ -106,10 +106,18 @@ Learning about permissions from [wooledge - Permissions](https://mywiki.wooledge
 	 3. **Perform the default action**: if the signal is not caught or ignored then the default action is taken. For many processes this means terminating the process
 	 4. **Block the signal**: signals that are in that process's signal mask remain pending until they are unblocked
 - **SIG** is the start of os sig codes
-- **SIGHUP(1)**: is the hangup. It is used to reload a daemon's configuration
-- **SIGINT(2)**: Interrupt. It is sent by `CTRL-C`. It is a request to terminate the process.
+- **SIGHUP(1)**: is the hangup. It is used to reload a daemon's configuration when its controlling terminal is closed
+- **SIGINT(2)**: Interrupt. It is sent by `CTRL-C`. It is a request to terminate the operation of the process. If the process/program has a handler for this signal then it will handle it either by ignoring the signal, printing a message or go into a menu to choose what to do next.
 - **SIGKILL(9)**: Kill. This is not a request but an immediate forceful termination of a process. The process is unable to ignore, catch, or block this signal.
 - **SIGSEGV(11)**: This is the signal that indicates that the process tried to access a segment of memory that is unauthorized for it to access, or it does not exist, or it has read access to the memory but tried to write. kernel sends the **SIGSEGV** and the process dies unless it has a handler for it. 
-- **SIGTERM(15)**: Termination. A polite way to ask the process to terminate. It is the default signal sent by the `kill` command. A Process can catch this signal and do the cleanup before exiting. 
-- **SIGSTOP**: Stop. It pauses the process. It cannot be caught or ignored like **SIGKILL** 
+- **SIGTERM(15)**: Termination. A polite way to ask the process to terminate. It is the default signal sent by the `kill` command. A process can catch this signal and do the cleanup before exiting. 
+- **SIGSTOP**: Stop. It pauses the process. It cannot be caught or ignored like **SIGKILL**. It can be resumed with **SIGCONT** signal.
 - Main difference between **SIGTERM(15)** and **SIGKILL** is that **SIGTERM** is a request of termination that can be handled, but **SIGKILL** just kills the process immediately.
+
+
+**18th May 2026**
+
+- `kill` command is used to send many signals, not just ones that terminate a process.
+- Using `kill [PID]` command with a process ID will send the TERM signal(signal 15) to the process by default and allows it to save its progress and shutdown cleanly. You can also use `kill -15 [PID]` to achieve the same results.
+- `kill -9 [PID]` is used to kill a process immediately and it does not let it save its progress or shutdown cleanly, it kills the process immediately. 
+- `kill -0 [PID]` is a special use case when you want to check if a process with that PID exists and if you have permission to signal it. It does not send a signal itself but it just checks. If the command executes successfully with exit code 0 then it means the process exists, if it fails execution then you either have no permission to signal it or it does not exist
